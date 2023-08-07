@@ -29,14 +29,17 @@ int main(){
             break;
         case 3:
             if (stk.size() > 0)
-                std::cout << stk.top() << std::endl;
+                // std::cout << stk.top() << "\n";
+                printf("%s\n", stk.top());
             else
-                std::cout << "Empty!" << std::endl;
+                // std::cout << "Empty!" << "\n";
+                printf("Empty!\n");
             break;        
         default:
             break;
         }
         num--;
     }
+    std::cout << std::endl;
     return (0);
 }
