@@ -1,26 +1,20 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <sstream>
 #include <stack>
-using namespace std;
+#include <stdio.h>
 
 int main(){
     int num;
-    std::string tmp;
-    std::stack<std::string> stk;
-    std::vector<int> arr;
-    std::getline(std::cin, tmp);
-    std::istringstream iss(tmp);
-    iss >> num;
+    std::stack<long long> stk;
+    scanf("%d", &num);
     while (num) {
         int first;
-        std::string second;
+        long long second;
 
-        std::cin >> first;
+        scanf("%d", &first);
         switch (first){
         case 1:
-            std::cin >> second;
+            scanf("%lld", &second);
             stk.push(second);
             break;
         case 2:
@@ -29,10 +23,8 @@ int main(){
             break;
         case 3:
             if (stk.size() > 0)
-                // std::cout << stk.top() << "\n";
-                printf("%s\n", stk.top());
+                printf("%lld\n", stk.top());
             else
-                // std::cout << "Empty!" << "\n";
                 printf("Empty!\n");
             break;        
         default:
@@ -40,6 +32,5 @@ int main(){
         }
         num--;
     }
-    std::cout << std::endl;
     return (0);
 }
