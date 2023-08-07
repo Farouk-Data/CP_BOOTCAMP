@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <cmath> 
 
 int main()
 {
@@ -18,20 +19,23 @@ int main()
     std::istringstream iss2(list);
 
 
-
-    int tmp2;
-    while (iss2 >> tmp2)
-        arr.push_back(tmp2);
-
-    for (int i = 0; i < num && i < arr.size() ; i++)
-    {
-        if (arr[i] > 0)
-            arr[i] += 2;
+    if (num <= 100){
+        int tmp2;
+        while (iss2 >> tmp2)
+            arr.push_back(tmp2);
+        for (int i = 0; i < num && i < arr.size() ; i++)
+        {   
+            if (std::abs(arr[i]) <= 100)
+            {
+                if (arr[i] > 0)
+                    arr[i] += 2;
+            }
+            else
+                return (-1);
+        }
+        for (int i = 0; i < num && i < arr.size() ; i++)
+            std::cout << arr[i] << " ";
+        std::cout << std::endl;
     }
-    
-    for (int i = 0; i < num && i < arr.size() ; i++)
-        std::cout << arr[i] << " ";
-    std::cout << std::endl;
-    
     return (0);
 }
