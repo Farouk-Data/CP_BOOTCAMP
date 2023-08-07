@@ -3,24 +3,25 @@
 #include <string>
 #include <sstream>
 #include <stack>
+using namespace std;
 
 int main(){
     int num;
     std::string tmp;
-    std::stack<int> stk;
+    std::stack<std::string> stk;
     std::vector<int> arr;
     std::getline(std::cin, tmp);
     std::istringstream iss(tmp);
     iss >> num;
     while (num) {
-        int tmp2;
-        std::getline(std::cin, tmp);
-        std::istringstream iss(tmp);
-        while (iss >> tmp2)
-            arr.push_back(tmp2);
-        switch (arr[0]){
+        int first;
+        std::string second;
+
+        std::cin >> first;
+        switch (first){
         case 1:
-            stk.push(arr[1]);
+            std::cin >> second;
+            stk.push(second);
             break;
         case 2:
             if (stk.size() > 0)
