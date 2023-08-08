@@ -11,18 +11,16 @@ int main(){
     map<long long, long long> mp;
     cin >> len >> target;
 
-    for (int i = 0; i < len; i++){
+    for (long long i = 0; i < len; i++){
         cin >> tmp;
-        int res = abs(tmp - target);
+        long long res = abs(tmp - target);
         map<long long,long long>::iterator it = mp.find(res);
         if (it != mp.end())
         {
             pos1 = it->second + 1;
             pos2 = i + 1;
-            break;
         }
-        else
-            mp.insert(make_pair(tmp, i));
+        mp.insert(make_pair(tmp, i));
     }
     if (pos1 != -1)
         cout << pos1 << " " << pos2 << "\n";
