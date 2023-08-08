@@ -5,7 +5,7 @@
 #include <cmath>
 
 int main(){
-    int tmp, len, pos1, pos2, target;
+    int tmp, len, pos1 = -1 , pos2, target;
     std::map<int, int> mp;
     std::cin >> len >> target;
 
@@ -22,5 +22,9 @@ int main(){
         else
             mp.insert(std::make_pair(tmp, i));
     }
-    std::cout << pos1 << " " << pos2 << "\n";
+    if (pos1 != -1)
+        std::cout << pos1 << " " << pos2 << "\n";
+    else
+        printf("IMPOSSIBLE\n");
+    return (0);
 }
