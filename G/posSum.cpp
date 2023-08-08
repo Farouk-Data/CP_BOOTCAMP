@@ -7,24 +7,21 @@
 using namespace std;
 
 int main(){
-    long long tmp, len, pos1 = -1 , pos2, target;
+    long long tmp, len, target;
     map<long long, long long> mp;
     cin >> len >> target;
 
     for (long long i = 0; i < len; i++){
         cin >> tmp;
-        long long res = abs(tmp - target);
+        long long res = target - tmp;
         map<long long,long long>::iterator it = mp.find(res);
         if (it != mp.end())
         {
-            pos1 = it->second + 1;
-            pos2 = i + 1;
+            cout << it->second + 1 << " " << i + 1 << "\n";
+            return (0);
         }
-        mp.insert(make_pair(tmp, i));
+        mp[tmp] = i;
     }
-    if (pos1 != -1)
-        cout << pos1 << " " << pos2 << "\n";
-    else
-        printf("IMPOSSIBLE\n");
+    printf("IMPOSSIBLE\n");
     return (0);
 }
