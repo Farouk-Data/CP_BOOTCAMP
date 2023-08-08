@@ -4,15 +4,17 @@
 #include <stdio.h>
 #include <cmath>
 
+using namespace std;
+
 int main(){
-    int tmp, len, pos1 = -1 , pos2, target;
-    std::map<int, int> mp;
-    std::cin >> len >> target;
+    long long tmp, len, pos1 = -1 , pos2, target;
+    map<long long, long long> mp;
+    cin >> len >> target;
 
     for (int i = 0; i < len; i++){
-        std::cin >> tmp;
-        int res = std::abs(tmp - target);
-        std::map<int,int>::iterator it = mp.find(res);
+        cin >> tmp;
+        int res = abs(tmp - target);
+        map<long long,long long>::iterator it = mp.find(res);
         if (it != mp.end())
         {
             pos1 = it->second + 1;
@@ -20,10 +22,10 @@ int main(){
             break;
         }
         else
-            mp.insert(std::make_pair(tmp, i));
+            mp.insert(make_pair(tmp, i));
     }
     if (pos1 != -1)
-        std::cout << pos1 << " " << pos2 << "\n";
+        cout << pos1 << " " << pos2 << "\n";
     else
         printf("IMPOSSIBLE\n");
     return (0);
