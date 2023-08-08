@@ -5,19 +5,18 @@
 #include <stdio.h>
 
 int main(){
-    int num;
+    std::string numb;
     std::vector<std::string> vec;
-
-    scanf("%d", &num);
+    std::getline(std::cin, numb, '\n');
+    int num = std::stoi(numb);
     while (num--) {
         std::string line;
         std::stack<char> stk;
-        std::cin >> line;
+        std::getline(std::cin, line, '\n');
         for (int i = 0; i < line.size(); i++){
             if (stk.empty())
                 stk.push(line[i]);
             else if ((line[i] == ']'  && stk.top() == '[') ||
-                    (line[i] == '}'  && stk.top() == '{') || 
                     (line[i] == ')'  && stk.top() == '('))
                 stk.pop();
             else
@@ -32,16 +31,3 @@ int main(){
         printf("%s\n", vec[i].c_str());
     return (0);
 }
-
-// ([]) 
-// (([()]))) 
-// ([()[]()])() 
-// ()()()()({})({}{})( 
-// ({}{}{}{}{}[][]()()) 
-
-// ({}}})
-// [](
-// {{{{{{]
-// ()[]{}]]]
-// ({[
-// }])
