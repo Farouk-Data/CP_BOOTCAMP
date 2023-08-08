@@ -10,26 +10,22 @@ int main(){
 
     scanf("%d", &num);
     while (num--) {
-        int flag = 1;
         std::string line;
         std::stack<char> stk;
         std::cin >> line;
         for (int i = 0; i < line.size(); i++){
-            if ((line[i] == '[' || line[i] == '{' || line[i] == '(') && i != line.size() - 1)
+            if (stk.empty())
                 stk.push(line[i]);
-            else if ((line[i] == ']'&& stk.size() > 0  && stk.top() == '[') ||
-                    (line[i] == '}' && stk.size() > 0 && stk.top() == '{') || 
-                    (line[i] == ')' && stk.size() > 0 && stk.top() == '('))
+            else if ((line[i] == ']'  && stk.top() == '[') ||
+                    (line[i] == '}'  && stk.top() == '{') || 
+                    (line[i] == ')'  && stk.top() == '('))
                 stk.pop();
-            else{
-                flag = 0;
-                vec.push_back("No");
-                break;
-            }
+            else
+                stk.push(line[i]);
         }
-        if (flag == 1)
+        if (stk.empty())
             vec.push_back("Yes");
-        if (stk.size() != 0)
+        else
             vec.push_back("No");
     }
     for (int i = 0 ; i < vec.size(); i++)
@@ -37,8 +33,15 @@ int main(){
     return (0);
 }
 
-// ([]) Yes
-// (([()]))) No
-// ([()[]()])() Yes
-// ()()()()({})({}{})( No
-// ({}{}{}{}{}[][]()()) Yes
+// ([]) 
+// (([()]))) 
+// ([()[]()])() 
+// ()()()()({})({}{})( 
+// ({}{}{}{}{}[][]()()) 
+
+// ({}}})
+// [](
+// {{{{{{]
+// ()[]{}]]]
+// ({[
+// }])
