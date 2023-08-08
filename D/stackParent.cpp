@@ -15,7 +15,7 @@ int main(){
         std::stack<char> stk;
         std::cin >> line;
         for (int i = 0; i < line.size(); i++){
-            if (line[i] == '[' || line[i] == '{' || line[i] == '(')
+            if ((line[i] == '[' || line[i] == '{' || line[i] == '(') && i != line.size() - 1)
                 stk.push(line[i]);
             else if ((line[i] == ']'&& stk.size() > 0  && stk.top() == '[') ||
                     (line[i] == '}' && stk.size() > 0 && stk.top() == '{') || 
@@ -36,3 +36,9 @@ int main(){
         printf("%s\n", vec[i].c_str());
     return (0);
 }
+
+// ([]) Yes
+// (([()]))) No
+// ([()[]()])() Yes
+// ()()()()({})({}{})( No
+// ({}{}{}{}{}[][]()()) Yes
