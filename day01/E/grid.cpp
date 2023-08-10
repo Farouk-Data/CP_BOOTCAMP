@@ -1,28 +1,29 @@
 #include <vector>
 #include <iostream>
-#include <cmath>
-
+#define mod 1000000007
 using namespace std;
 
 int main(){
-    int n;
+    long long n;
     char c;
     cin >> n;
-    std::vector<std::vector<char> > grid(n, std::vector<char>(n));
-    std::vector<std::vector<long long> > prefSum(n, std::vector<long long>(n));
-
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
+    vector<vector<long long> > prefSum(n, vector<long long>(n));
+    for (long long i = 0; i < n; i++) {
+        for (long long j = 0; j < n; j++) {
             cin >> c;
-            grid[i][j] = c;
-            if (grid[i][j] == '*')
-                prefSum[i][j] = 0 % ((long long)pow(10,9) + 7) ;
-            else if (grid[i][j] == '.'){
-                if (i == 0 || j == 0)
-                    prefSum[i][j] = 1 % ((long long)pow(10,9) + 7);
-                else if (i != 0 && j != 0){
-                    prefSum[i][j] = (prefSum[i][j - 1] % ((long long)pow(10,9) + 7)) 
-                    + (prefSum[i - 1][j] % ((long long)pow(10,9) + 7));
+            if (c == '*')
+                prefSum[i][j] = 0;
+            else if (c == '.'){
+                if (i == 0 && j == 0)
+                    prefSum[i][j] = 1;
+                else if (i != 0 || j != 0){
+                    if (i == 0)
+                        prefSum[i][j] = (prefSum[i][j - 1] % mod) ;
+                    else if (j == 0)
+                        prefSum[i][j] =  (prefSum[i - 1][j] % mod);
+                    else
+                        prefSum[i][j] = (prefSum[i][j - 1] % mod) 
+                            + (prefSum[i - 1][j] % mod);
                 }
             }
         }
