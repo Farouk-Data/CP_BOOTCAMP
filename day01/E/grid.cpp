@@ -7,7 +7,7 @@ int main(){
     long long n;
     char c;
     cin >> n;
-    vector<vector<long long> > prefSum(n, vector<long long>(n));
+    vector<vector<long long> > prefSum(n, vector<long long>(n, 0));
     for (long long i = 0; i < n; i++) {
         for (long long j = 0; j < n; j++) {
             cin >> c;
@@ -22,8 +22,8 @@ int main(){
                     else if (j == 0)
                         prefSum[i][j] =  (prefSum[i - 1][j] % mod);
                     else
-                        prefSum[i][j] = (prefSum[i][j - 1] % mod) 
-                            + (prefSum[i - 1][j] % mod);
+                        prefSum[i][j] = ((prefSum[i][j - 1] % mod) 
+                            + (prefSum[i - 1][j] % mod))%mod;
                 }
             }
         }
