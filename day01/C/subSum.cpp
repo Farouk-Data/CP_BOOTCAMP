@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     vector<long long> vec;
     map<long long, long long> prefSum;
-    long long tmp, n, target, count, sum;
+    long long tmp, n, target, count = 0, sum = 0;
 
     cin >> n >> target;
     for (long long i = 0; i < n; i++) {
