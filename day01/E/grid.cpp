@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -15,20 +16,17 @@ int main(){
             cin >> c;
             grid[i][j] = c;
             if (grid[i][j] == '*')
-                prefSum[i][j] = 0;
+                prefSum[i][j] = 0 % ((long long)pow(10,9) + 7) ;
             else if (grid[i][j] == '.'){
                 if (i == 0 || j == 0)
-                    prefSum[i][j] = 1;
+                    prefSum[i][j] = 1 % ((long long)pow(10,9) + 7);
                 else if (i != 0 && j != 0){
-                    prefSum[i][j] = prefSum[i][j - 1] + prefSum[i - 1][j];
+                    prefSum[i][j] = (prefSum[i][j - 1] % ((long long)pow(10,9) + 7)) 
+                    + (prefSum[i - 1][j] % ((long long)pow(10,9) + 7));
                 }
             }
         }
     }
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
-            std::cout << prefSum[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
+    cout << prefSum[n - 1][n - 1] << "\n";
+    return (0);
 }
