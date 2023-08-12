@@ -18,7 +18,5 @@ int main(){
             count += diff;
         }
     }
-    for (auto j : vec)
-        cout << j << "\n";
     cout << count << "\n";
 }
