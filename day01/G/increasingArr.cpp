@@ -12,11 +12,13 @@ int main(){
         vec.push_back(tmp);
     }
     for (long long i = 0; i < vec.size(); i++){
-        if (vec[i] > vec[i + 1]){
-            diff = (vec[i + 1] - vec[i]);
+        if ((vec[i] > vec[i + 1]) && ((i + 1) < vec.size())){
+            diff = (vec[i] - vec[i + 1]);
             vec[i + 1] += diff;
             count += diff;
         }
     }
+    for (auto j : vec)
+        cout << j << "\n";
     cout << count << "\n";
 }
