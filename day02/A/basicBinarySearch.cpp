@@ -10,9 +10,9 @@ bool isExists(long long id, vector<long long> &vec, long long left, long long ri
         if (id == vec[mid])
             return (true);
         else if (id < vec[mid])
-            right = mid;
+            right = mid - 1;
         else
-            left = mid;
+            left = mid + 1;
     }
     return (false);
 }
@@ -30,17 +30,10 @@ int main (){
         cin >> tmp;
         qVec.push_back(tmp);
     }
-    // for (long long i = 0; i < qVec.size(); i++){
-        if (isExists(10, cVec, 0, cVec.size() - 1))
+    for (long long i = 0; i < qVec.size(); i++){
+        if (isExists(qVec[i], cVec, 0, cVec.size() - 1))
             cout << "YES" << "\n";
         else
             cout << "NO" << "\n";
-    // }
-    // cout << collect << "\n";
-    // for (auto i : cVec)
-    //     cout << i << " ";
-    // cout << "\n" << query << "\n";
-    // for (auto i : qVec)
-    //     cout << i << " ";
-
+    }
 }
