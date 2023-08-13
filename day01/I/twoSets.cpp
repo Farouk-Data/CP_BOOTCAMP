@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 
+//need to solve it using dp
+
 using namespace std;
 
 int main(){
@@ -15,7 +17,7 @@ int main(){
     mid = (sum / 2);
     if (sum % 2 == 1){
         cout << "NO" << "\n";
-        return (1);
+        return (0);
     }
     else {
         sub1.push_back(vec[vec.size() - 1]);
