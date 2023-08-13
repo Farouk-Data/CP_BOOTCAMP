@@ -8,7 +8,7 @@ int main(){
     vector<long long> vec, sub1, sub2;
 
     cin >> num;
-    for (long long i = 1; i < num + 1; i++){
+    for (long long i = 1; i <= num; i++){
         vec.push_back(i);
         sum += vec[vec.size() - 1];
     }
@@ -19,16 +19,21 @@ int main(){
     }
     else {
         sub1.push_back(vec[vec.size() - 1]);
-        for (long long r = vec.size(); r > 0; r--){
-            if (vec[vec.size() - 1] + vec[r - 2] < mid)
-                sub1.push_back(vec[r - 1]);
+        long long subSom = sub1[0];
+        for (long long r = vec.size() - 2; r > -1; r--){
+            if (subSom + vec[r] <= mid){
+                sub1.push_back(vec[r]);
+                subSom += vec[r];
+            }
             else
-                sub2.push_back(vec[r - 1]);
+                sub2.push_back(vec[r]);
         }
     }
+    cout << "YES " << sub1.size() << " ";
     for (long long k : sub1)
         cout << k << " ";
-    for (long long k : sub2)
-        cout << k << " ";
+    cout << sub2.size() << " ";
+    for (long long l : sub2)
+        cout << l << " ";
     cout << "\n";
 }
