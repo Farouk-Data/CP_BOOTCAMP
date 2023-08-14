@@ -5,11 +5,11 @@ using namespace std;
 
 LL expo(LL a, LL b){
     LL res = 1;
-    while ((b % MOD) > 0){
-        if ((b % MOD) % 2 == 1)
+    while (b > 0){
+        if (b % 2 == 1)
             res = ((a % MOD) * (res % MOD)) % MOD;
-        a = (a % MOD) * (a % MOD);
-        b = ((b % MOD) / 2);
+        a = ((a % MOD) * (a % MOD)) % MOD;
+        b = (b / 2);
     }
     return (res % MOD);
 }
