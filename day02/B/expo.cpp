@@ -1,18 +1,22 @@
 #include <vector>
 #include <iostream>
-#define mod 1000000007
+#define MOD 1000000007
+#define LL long long 
 using namespace std;
 
-long long expo(long long a, long long b){
+LL expo(LL a, LL b){
+    LL res = 1, tmp = 1;
     if (b == 0)
         return (1);
-    else if (b % 2 == 0)
-        return (expo(expo(a,2), (b/2)));
-    return (expo(expo(a,2), (b - 1/2)));
+    tmp = expo(a, b / 2);
+    res = tmp * tmp;
+    if (b % 2 == 1)
+        res = a * res;
+    return (res);
 }
 
 int main(){
-    long long q, a, b;
+    LL q, a, b;
 
     cin >> q;
     while (q--){
