@@ -1,9 +1,13 @@
 #include <iostream>
-#define MOD 1000000007
+#include <math.h>
+#include <bits/stdc++.h>
+
 #define LL long long 
+
 using namespace std;
 
 int main(){
+
     LL delta,x,in;
     cin >> in;
 

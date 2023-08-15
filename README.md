@@ -12,3 +12,7 @@ In terms of performance:
 For basic console I/O operations, the difference in performance between printf and std::cout, as well as between scanf and std::cin, is usually negligible for small inputs or outputs.
 When dealing with more complex formatting or larger volumes of data, the differences can become more noticeable. In general, C++'s iostreams might be slightly slower due to the added level of abstraction and flexibility they provide.
 Keep in mind that the actual performance impact can vary based on the specific usage, the compiler optimization level, and the underlying operating system. For most applications, the choice between using C-style I/O (printf and scanf) and C++ iostreams (std::cout and std::cin) should be made based on factors such as code readability, maintainability, and ease of use, rather than purely focusing on minor performance differences.
+
+exEday02
+https://vjudge.net/problem/SPOJ-TRIGALGE
+#https://girlfriend-yerin.tistory.com/75
