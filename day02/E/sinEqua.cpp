@@ -16,6 +16,7 @@ int main(){
     LL in;
     LD a, b, c;
     cin >> in;
+    cout << fixed << setprecision(6);
     while (in--){
         cin >> a >> b >> c;
         LD low = 0, high = c + 100, mid;
