@@ -15,7 +15,7 @@ int main(){
     }
     abc = (((vec[0] * vec[1]) % MOD) * vec[2]) % MOD;
     def = (((vec[3] * vec[4]) % MOD) * vec[5]) % MOD;
-    diff = (abc - def);
+    diff = (abc - def) % MOD;
     cout << diff << "\n";
     return (0);
 }
