@@ -29,11 +29,12 @@ int main(){
     cin >> in;
     vector<LL> vec;
     factorize(in, vec);
-    cout << in << ": " ;
+    cout << in << ":" ;
     for(LL i = 0; i < vec.size(); i++){
-        cout << vec[i];
         if (i < vec.size())
             cout << " ";
+        cout << vec[i];
     }
+    cout << "\n";
     return (0);
 }
